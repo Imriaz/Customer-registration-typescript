@@ -86,32 +86,30 @@ const CustomerIdentityAdd: React.FC<DemoFormProps> = (props) => {
           <FormLabel className={classes.FormMiddleLevel}>
             Online Customer ID:
           </FormLabel>
-            <RadioGroup
-              name="customerType"
-              onChange={handleChange}
-              defaultValue="personal"
-              className={classes.FormRightLevel}
-            >
-              <FormControlLabel
-                value="personal"
-                control={<Radio size="small" />}
-                label={
-                  <Typography style={{ fontSize: "12px" }}>
-                    personal
-                  </Typography>
-                }
-              />
-              <FormControlLabel
-                value="Corporation"
-                control={<Radio size="small" />}
-                label={
-                  <Typography style={{ fontSize: "12px" }}>
-                    Corporation
-                  </Typography>
-                }
-              />
-            </RadioGroup>
-          </div>
+          <RadioGroup
+            name="customerType"
+            onChange={handleChange}
+            defaultValue="personal"
+            className={classes.FormRightLevel}
+          >
+            <FormControlLabel
+              value="personal"
+              control={<Radio size="small" color="primary" />}
+              label={
+                <Typography style={{ fontSize: "12px" }}>personal</Typography>
+              }
+            />
+            <FormControlLabel
+              value="Corporation"
+              control={<Radio size="small" color="primary" />}
+              label={
+                <Typography style={{ fontSize: "12px" }}>
+                  Corporation
+                </Typography>
+              }
+            />
+          </RadioGroup>
+        </div>
       </form>
     </React.Fragment>
   );

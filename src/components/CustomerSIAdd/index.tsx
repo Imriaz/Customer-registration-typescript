@@ -36,7 +36,7 @@ const useStyles = makeStyles({
     display: "grid",
     gridTemplateColumns: "repeat(8, 1fr)",
     padding: "0px 15px 0px 5px",
-    gap: "8px",
+    gap: "5px",
     alignItems: "center",
   },
   inputField: {
@@ -99,7 +99,6 @@ const useStyles = makeStyles({
     },
     width: "110px",
     textAlign: "right",
-    // paddingRight: "10px",
   },
   FormTitleLevel: {
     gridColumn: "1/5",
@@ -120,7 +119,6 @@ const useStyles = makeStyles({
     },
     width: "110px",
     textAlign: "right",
-    // paddingRight: "10px",
   },
   RejectionTitleLevel: {
     gridColumn: "1/5",
@@ -132,7 +130,7 @@ const useStyles = makeStyles({
   paper: {
     position: "absolute",
     width: 400,
-    backgroundColor: "yello",
+    backgroundColor: "transparent",
     border: "2px solid #000",
     padding: "300px",
   },
@@ -154,7 +152,7 @@ const useStyles = makeStyles({
   },
   radioButtonGroup: {
     display: "grid",
-    gridTemplateColumns: "1fr 1.5fr",
+    gridTemplateColumns: "1fr 1fr",
     // gridColumn: "6/8",
   },
   FormSelectButton1: {
@@ -172,19 +170,23 @@ const useStyles = makeStyles({
     },
   },
   inputCheckbox1: {
-    gridColumn: "1/3",
-    "&.MuiFormLabel-root": {
-      fontSize: "12px",
+    gridColumn: "1/2",
+    width: "120px",
+    "&.MuiFormControlLabel-root": {
+      marginLeft: "-5px",
+      marginRight: "0px",
     },
   },
   inputCheckbox2: {
-    gridColumn: "3/6",
-    "&.MuiFormLabel-root": {
-      fontSize: "12px",
+    gridColumn: "2/6",
+    "&.MuiFormControlLabel-root": {
+      marginLeft: "-5px",
+      marginRight: "0px",
     },
   },
   checkboxTitle: {
     fontSize: "12px",
+    marginLeft: "-5px",
   },
   CallCenterLevel: {
     gridColumn: "2/4",
@@ -278,7 +280,7 @@ const CustomerSIAdd: React.FC<DemoFormProps> = (props) => {
             >
               <FormControlLabel
                 value="requirement"
-                control={<Radio size="small" />}
+                control={<Radio size="small" color="primary"/>}
                 // className={classes.FormSelectButton1}
                 label={
                   <Typography style={{ fontSize: "12px" }}>
@@ -288,7 +290,7 @@ const CustomerSIAdd: React.FC<DemoFormProps> = (props) => {
               />
               <FormControlLabel
                 value="notRequirement"
-                control={<Radio size="small" />}
+                control={<Radio size="small" color="primary"/>}
                 // className={classes.FormSelectButton2}
                 label={
                   <Typography style={{ fontSize: "12px" }}>
@@ -300,13 +302,13 @@ const CustomerSIAdd: React.FC<DemoFormProps> = (props) => {
           </div> */}
           {/* <FormControlLabel
             value="requirement"
-            control={<Radio size="small"/>}
+            control={<Radio size="small" color="primary"/>}
             label="requirement"
             className={classes.FormSelectButton1}
           />
           <FormControlLabel
             value="notRequirement"
-            control={<Radio size="small" />}
+            control={<Radio size="small" color="primary"/>}
             label="don't want"
             className={classes.FormSelectButton2}
           /> */}
@@ -548,6 +550,7 @@ const CustomerSIAdd: React.FC<DemoFormProps> = (props) => {
                 color="primary"
                 value="do not send DM"
                 name="doNotSDM"
+                size="small"
               />
             }
             className={classes.inputCheckbox1}
@@ -564,6 +567,7 @@ const CustomerSIAdd: React.FC<DemoFormProps> = (props) => {
                 color="primary"
                 value="do not issue a purchase order"
                 name="doNotIPO"
+                size="small"
               />
             }
             className={classes.inputCheckbox2}
