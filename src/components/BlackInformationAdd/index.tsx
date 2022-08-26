@@ -2,6 +2,7 @@ import React from "react";
 import { FormLabel, makeStyles } from "@material-ui/core";
 import { formDataType, ErrorType } from "../Homepage";
 import MyInputField from "../MyInputField";
+import { MoreHoriz } from "@mui/icons-material";
 
 type DemoFormProps = {
   data: formDataType;
@@ -39,6 +40,20 @@ const useStyles = makeStyles({
     gridColumn: "3/5",
     height: "25px",
   },
+  borderButton: {
+    border: "1px solid black",
+    borderRadius: "50px",
+    gridColumn: "8/9",
+    marginRight: "50px",
+    "&.css-i4bv87-MuiSvgIcon-root": {
+      height: "18px",
+      width: "18px",
+    },
+    // "&.makeStyles-borderButton-967.css-i4bv87-MuiSvgIcon-root": {
+    //   height: "18px",
+    //   width: "18px",
+    // },
+  },
   errorMessage: {
     Color: "red",
     padding: "10px",
@@ -68,6 +83,7 @@ const BlackInformationAdd: React.FC<DemoFormProps> = (props) => {
           <FormLabel className={classes.FormLeftLevel}>
             black information note
           </FormLabel>
+          <MoreHoriz className={classes.borderButton} />
         </div>
       </form>
     </React.Fragment>

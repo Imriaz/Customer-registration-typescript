@@ -69,7 +69,8 @@ const useStyles = makeStyles({
     border: "1px solid black",
     backgroundColor: "white",
     borderRadius: "50px",
-    gridColumn: "6/7",
+    // gridColumn: "6/7",
+    gridColumn: "5/6",
     height: "25px",
     marginBottom: "5px",
     "& .MuiFormHelperText-root": {
@@ -82,7 +83,8 @@ const useStyles = makeStyles({
     border: "1px solid black",
     backgroundColor: "white",
     borderRadius: "50px",
-    gridColumn: "6/8",
+    // gridColumn: "6/8",
+    gridColumn: "5/7",
     height: "25px",
     marginBottom: "5px",
     "& .MuiFormHelperText-root": {
@@ -112,7 +114,8 @@ const useStyles = makeStyles({
     // },
   },
   FormRightLevel: {
-    gridColumn: "5/6",
+    // gridColumn: "5/6",
+    gridColumn: "4/5",
     color: "black",
     "&.MuiFormLabel-root": {
       fontSize: "12px",
@@ -129,10 +132,10 @@ const useStyles = makeStyles({
   },
   paper: {
     position: "absolute",
-    width: 400,
-    backgroundColor: "transparent",
+    width: 150,
+    backgroundColor: "#D0D3D4",
     border: "2px solid #000",
-    padding: "300px",
+    padding: "30px 80px",
   },
   noneLevel: {
     gridColumn: "2/3",
@@ -151,9 +154,16 @@ const useStyles = makeStyles({
     },
   },
   radioButtonGroup: {
-    display: "grid",
-    gridTemplateColumns: "1fr 1fr",
     // gridColumn: "6/8",
+    gridColumn: "5/7",
+    fontSize: "12px",
+    "& .MuiFormGroup-root": {
+      flexWrap: "noWrap",
+      flexDirection: "row",
+    },
+    "&.MuiFormLabel-root": {
+      fontSize: "12px",
+    },
   },
   FormSelectButton1: {
     gridColumn: "6/7",
@@ -272,15 +282,11 @@ const CustomerSIAdd: React.FC<DemoFormProps> = (props) => {
             error={Boolean(props.errors.regionCode)}
           />
           <FormLabel className={classes.FormRightLevel}>receipt</FormLabel>
-          {/* <div className={classes.radioButtonGroup}>
-            <RadioGroup
-              name="customerType"
-              onChange={props.handleChange}
-              // className={classes.FormRightLevel}
-            >
+          <div className={classes.radioButtonGroup}>
+            <RadioGroup name="customerType" onChange={props.handleChange}>
               <FormControlLabel
                 value="requirement"
-                control={<Radio size="small" color="primary"/>}
+                control={<Radio size="small" color="primary" />}
                 // className={classes.FormSelectButton1}
                 label={
                   <Typography style={{ fontSize: "12px" }}>
@@ -290,7 +296,7 @@ const CustomerSIAdd: React.FC<DemoFormProps> = (props) => {
               />
               <FormControlLabel
                 value="notRequirement"
-                control={<Radio size="small" color="primary"/>}
+                control={<Radio size="small" color="primary" />}
                 // className={classes.FormSelectButton2}
                 label={
                   <Typography style={{ fontSize: "12px" }}>
@@ -299,19 +305,7 @@ const CustomerSIAdd: React.FC<DemoFormProps> = (props) => {
                 }
               />
             </RadioGroup>
-          </div> */}
-          {/* <FormControlLabel
-            value="requirement"
-            control={<Radio size="small" color="primary"/>}
-            label="requirement"
-            className={classes.FormSelectButton1}
-          />
-          <FormControlLabel
-            value="notRequirement"
-            control={<Radio size="small" color="primary"/>}
-            label="don't want"
-            className={classes.FormSelectButton2}
-          /> */}
+          </div>
           <FormLabel className={classes.FormLeftLevel}>Gender</FormLabel>
           <button
             className={classes.inputField}
@@ -327,8 +321,13 @@ const CustomerSIAdd: React.FC<DemoFormProps> = (props) => {
             aria-describedby="simple-modal-description"
           >
             <div style={modalStyle} className={classes.paper}>
-              <FormControl component="fieldset">
-                <FormLabel>Select an option:</FormLabel>
+              <button style={{ marginLeft: "180px" }} onClick={handleClose}>
+                X
+              </button>
+              <FormControl>
+                <FormLabel style={{ color: "black", fontWeight: "bold" }}>
+                  Select an option:
+                </FormLabel>
                 <RadioGroup
                   aria-label="gender"
                   name="gender"
@@ -354,6 +353,9 @@ const CustomerSIAdd: React.FC<DemoFormProps> = (props) => {
               </FormControl>
             </div>
           </Modal>
+          <Typography style={{ textAlign: "left", fontSize: "12px" }}>
+            {props.data?.gender}
+          </Typography>
           <MyInputField
             labelText="Receipt address"
             labelClass={classes.FormRightLevel}
@@ -369,7 +371,7 @@ const CustomerSIAdd: React.FC<DemoFormProps> = (props) => {
             labelClass={classes.FormLeftLevel}
             name="age"
             required={false}
-            textFieldClass={classes.inputFieldLeftLarge}
+            textFieldClass={classes.inputField}
             handleChange={props.handleChange}
             helperText={props.errors.age}
             error={Boolean(props.errors.age)}

@@ -146,6 +146,9 @@ const BasicInfoAdd: React.FC<DemoFormProps> = (props) => {
               if (event.target.value.match(phoneNoRegex)) {
                 props.handleChange(event);
               }
+              else{
+                //state declear kore try korte hobe
+              }
             }}
           />
         </div>

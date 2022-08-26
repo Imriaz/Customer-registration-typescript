@@ -120,6 +120,7 @@ const Homepage = () => {
        This Method to Add Employee on the state
       */
   const handleSubmit = async (e: React.FormEvent) => {
+    console.log("Clicked")
     e.preventDefault();
     if (isValid()) {
       return;
@@ -148,6 +149,7 @@ const Homepage = () => {
           doNotIPO: data.doNotIPO,
         },
       ]);
+        console.log(data);
       setData({
         customerType: "",
         firstName: "",
@@ -170,7 +172,6 @@ const Homepage = () => {
         doNotSDM: "",
         doNotIPO: "",
       });
-      console.log(employees);
       // navigation("/");
     }
   };
