@@ -56,7 +56,6 @@ const BlackInformationAdd: React.FC<DemoFormProps> = (props) => {
             labelText="black information"
             labelClass={classes.FormLeftLevel}
             name="blackInformation"
-            value={""}
             required={false}
             textFieldClass={classes.inputField}
             handleChange={props.handleChange}

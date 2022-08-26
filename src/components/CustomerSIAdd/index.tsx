@@ -29,13 +29,13 @@ type DemoFormProps = {
 const useStyles = makeStyles({
   form: {
     border: "1px solid black",
-    padding: "5px 10px",
+    padding: "5px",
     margin: "10px",
   },
   formGroup: {
     display: "grid",
     gridTemplateColumns: "repeat(8, 1fr)",
-    padding: "5px 0px",
+    padding: "0px 15px 0px 5px",
     gap: "8px",
     alignItems: "center",
   },
@@ -43,7 +43,7 @@ const useStyles = makeStyles({
     border: "1px solid black",
     backgroundColor: "white",
     borderRadius: "50px",
-    gridColumn: "2/4",
+    gridColumn: "2/3",
     height: "25px",
     marginBottom: "5px",
     "& .MuiFormHelperText-root": {
@@ -56,7 +56,7 @@ const useStyles = makeStyles({
     border: "1px solid black",
     backgroundColor: "white",
     borderRadius: "50px",
-    gridColumn: "2/5",
+    gridColumn: "2/4",
     height: "25px",
     marginBottom: "5px",
     "& .MuiFormHelperText-root": {
@@ -99,15 +99,18 @@ const useStyles = makeStyles({
     },
     width: "110px",
     textAlign: "right",
-    paddingRight: "10px",
+    // paddingRight: "10px",
   },
   FormTitleLevel: {
     gridColumn: "1/5",
-    padding: "0px 5px",
+    textAlign: "left",
+    fontWeight: "bold",
     color: "black",
-    "&.MuiFormLabel-root": {
-      fontSize: "12px",
-    },
+    fontSize: "12px",
+
+    // "&.MuiFormLabel-root": {
+    //   fontSize: "12px",
+    // },
   },
   FormRightLevel: {
     gridColumn: "5/6",
@@ -117,7 +120,14 @@ const useStyles = makeStyles({
     },
     width: "110px",
     textAlign: "right",
-    paddingRight: "10px",
+    // paddingRight: "10px",
+  },
+  RejectionTitleLevel: {
+    gridColumn: "1/5",
+    textAlign: "left",
+    fontWeight: "bold",
+    color: "black",
+    fontSize: "12px",
   },
   paper: {
     position: "absolute",
@@ -127,15 +137,25 @@ const useStyles = makeStyles({
     padding: "300px",
   },
   noneLevel: {
-    gridColumn: "2/4",
+    gridColumn: "2/3",
     color: "black",
-    "&.MuiFormLabel-root": {
-      fontSize: "12px",
-    },
+    fontSize: "12px",
+    // "&.MuiFormLabel-root": {
+    //   fontSize: "12px",
+    // },
   },
   borderButton: {
     border: "1px solid black",
     borderRadius: "50px",
+    "&.css-i4bv87-MuiSvgIcon-root": {
+      height: "18px",
+      width: "18px",
+    },
+  },
+  radioButtonGroup: {
+    display: "grid",
+    gridTemplateColumns: "1fr 1.5fr",
+    // gridColumn: "6/8",
   },
   FormSelectButton1: {
     gridColumn: "6/7",
@@ -153,7 +173,6 @@ const useStyles = makeStyles({
   },
   inputCheckbox1: {
     gridColumn: "1/3",
-
     "&.MuiFormLabel-root": {
       fontSize: "12px",
     },
@@ -170,16 +189,20 @@ const useStyles = makeStyles({
   CallCenterLevel: {
     gridColumn: "2/4",
     color: "black",
-    "&.MuiFormLabel-root": {
-      fontSize: "12px",
-    },
+    textAlign: "left",
+    fontSize: "12px",
+  },
+  firstStoreLevel: {
+    gridColumn: "1/2",
+    color: "black",
+    textAlign: "left",
+    fontSize: "12px",
   },
   RegDateLevel: {
-    gridColumn: "5/9",
+    gridColumn: "5/8",
     color: "black",
-    "&.MuiFormLabel-root": {
-      fontSize: "12px",
-    },
+    textAlign: "left",
+    fontSize: "12px",
   },
   errorMessage: {
     Color: "red",
@@ -247,10 +270,37 @@ const CustomerSIAdd: React.FC<DemoFormProps> = (props) => {
             error={Boolean(props.errors.regionCode)}
           />
           <FormLabel className={classes.FormRightLevel}>receipt</FormLabel>
-
-          <FormControlLabel
+          {/* <div className={classes.radioButtonGroup}>
+            <RadioGroup
+              name="customerType"
+              onChange={props.handleChange}
+              // className={classes.FormRightLevel}
+            >
+              <FormControlLabel
+                value="requirement"
+                control={<Radio size="small" />}
+                // className={classes.FormSelectButton1}
+                label={
+                  <Typography style={{ fontSize: "12px" }}>
+                    requirement
+                  </Typography>
+                }
+              />
+              <FormControlLabel
+                value="notRequirement"
+                control={<Radio size="small" />}
+                // className={classes.FormSelectButton2}
+                label={
+                  <Typography style={{ fontSize: "12px" }}>
+                    don't want
+                  </Typography>
+                }
+              />
+            </RadioGroup>
+          </div> */}
+          {/* <FormControlLabel
             value="requirement"
-            control={<Radio size="small" />}
+            control={<Radio size="small"/>}
             label="requirement"
             className={classes.FormSelectButton1}
           />
@@ -259,9 +309,8 @@ const CustomerSIAdd: React.FC<DemoFormProps> = (props) => {
             control={<Radio size="small" />}
             label="don't want"
             className={classes.FormSelectButton2}
-          />
+          /> */}
           <FormLabel className={classes.FormLeftLevel}>Gender</FormLabel>
-
           <button
             className={classes.inputField}
             type="button"
@@ -269,7 +318,6 @@ const CustomerSIAdd: React.FC<DemoFormProps> = (props) => {
           >
             <MoreHoriz />
           </button>
-
           <Modal
             open={open}
             onClose={handleClose}
@@ -304,7 +352,6 @@ const CustomerSIAdd: React.FC<DemoFormProps> = (props) => {
               </FormControl>
             </div>
           </Modal>
-
           <MyInputField
             labelText="Receipt address"
             labelClass={classes.FormRightLevel}
@@ -345,7 +392,9 @@ const CustomerSIAdd: React.FC<DemoFormProps> = (props) => {
               }
             }}
           />
-          <span>%</span>
+          <Typography style={{ textAlign: "left", fontSize: "16px" }}>
+            %
+          </Typography>
           <MyInputField
             labelText="Customer factor"
             labelClass={classes.FormLeftLevel}
@@ -475,9 +524,13 @@ const CustomerSIAdd: React.FC<DemoFormProps> = (props) => {
             helperText={props.errors.customerGen4}
             error={Boolean(props.errors.customerGen4)}
           />
-          <FormLabel className={classes.FormLeftLevel}>
+
+          <FormLabel className={classes.RejectionTitleLevel}>
             Rejection management
           </FormLabel>
+          {/* <FormLabel className={classes.FormLeftLevel}>
+            Rejection management
+          </FormLabel> */}
           <MyInputField
             labelText="Customer generic 5"
             labelClass={classes.FormRightLevel}
@@ -520,11 +573,10 @@ const CustomerSIAdd: React.FC<DemoFormProps> = (props) => {
               </Typography>
             }
           />
-          <FormLabel className={classes.FormLeftLevel}>
+          <FormLabel className={classes.firstStoreLevel}>
             First store CD
           </FormLabel>
           <FormLabel className={classes.CallCenterLevel}>call center</FormLabel>
-
           <FormLabel className={classes.RegDateLevel}>
             registration date {formatYmd(new Date())}
           </FormLabel>

@@ -110,6 +110,11 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "white",
     borderRadius: "50px",
     marginLeft: "10px",
+
+    "&.css-i4bv87-MuiSvgIcon-root": {
+      height: "18px",
+      width: "18px",
+    },
   },
   errorMessage: {
     Color: "red",

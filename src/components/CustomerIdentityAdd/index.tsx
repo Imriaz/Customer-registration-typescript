@@ -1,5 +1,5 @@
 import React from "react";
-import { FormControlLabel, FormLabel, makeStyles, Radio, RadioGroup} from "@material-ui/core";
+import { FormControlLabel, FormLabel, makeStyles, Radio, RadioGroup, Typography} from "@material-ui/core";
 import { formDataType, ErrorType } from "../Homepage";
 
 type DemoFormProps = {
@@ -9,7 +9,7 @@ type DemoFormProps = {
   setErrors: React.Dispatch<React.SetStateAction<ErrorType>>;
 };
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   form: {
     margin: "0px 10px",
   },
@@ -40,12 +40,16 @@ const useStyles = makeStyles({
     "&.MuiFormLabel-root": {
       fontSize: "12px",
     },
+    "&.MuiTypography-body1": {
+      fontSize: theme.spacing(1.2),
+    },
   },
+
   errorMessage: {
     Color: "red",
     padding: "10px",
   },
-});
+}));
 
 const CustomerIdentityAdd: React.FC<DemoFormProps> = (props) => {
   const classes = useStyles();
@@ -82,25 +86,32 @@ const CustomerIdentityAdd: React.FC<DemoFormProps> = (props) => {
           <FormLabel className={classes.FormMiddleLevel}>
             Online Customer ID:
           </FormLabel>
-
-          <RadioGroup
-            name="customerType"
-            onChange={handleChange}
-            defaultValue="personal"
-            className={classes.FormRightLevel}
-          >
-            <FormControlLabel
-              value="personal"
-              control={<Radio size="small" />}
-              label="personal"
-            />
-            <FormControlLabel
-              value="Corporation"
-              control={<Radio size="small" />}
-              label="Corporation"
-            />
-          </RadioGroup>
-        </div>
+            <RadioGroup
+              name="customerType"
+              onChange={handleChange}
+              defaultValue="personal"
+              className={classes.FormRightLevel}
+            >
+              <FormControlLabel
+                value="personal"
+                control={<Radio size="small" />}
+                label={
+                  <Typography style={{ fontSize: "12px" }}>
+                    personal
+                  </Typography>
+                }
+              />
+              <FormControlLabel
+                value="Corporation"
+                control={<Radio size="small" />}
+                label={
+                  <Typography style={{ fontSize: "12px" }}>
+                    Corporation
+                  </Typography>
+                }
+              />
+            </RadioGroup>
+          </div>
       </form>
     </React.Fragment>
   );
