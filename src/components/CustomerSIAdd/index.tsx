@@ -1,6 +1,5 @@
 import React from "react";
 import {
-  Box,
   Checkbox,
   FormControl,
   FormControlLabel,
@@ -34,25 +33,12 @@ const useStyles = makeStyles({
   },
   formGroup: {
     display: "grid",
-    gridTemplateColumns: "repeat(8, 1fr)",
-    padding: "0px 15px 0px 5px",
+    gridTemplateColumns: "repeat(9, 1fr)",
+    padding: "0px 25px 0px 5px",
     gap: "5px",
     alignItems: "center",
   },
   inputField: {
-    border: "1px solid black",
-    backgroundColor: "white",
-    borderRadius: "50px",
-    gridColumn: "2/3",
-    height: "25px",
-    marginBottom: "5px",
-    "& .MuiFormHelperText-root": {
-      marginTop: "-9px",
-      marginLeft: "5px",
-      fontSize: "12px",
-    },
-  },
-  inputFieldLeftLarge: {
     border: "1px solid black",
     backgroundColor: "white",
     borderRadius: "50px",
@@ -65,12 +51,24 @@ const useStyles = makeStyles({
       fontSize: "12px",
     },
   },
+  inputFieldLeftLarge: {
+    border: "1px solid black",
+    backgroundColor: "white",
+    borderRadius: "50px",
+    gridColumn: "2/5",
+    height: "25px",
+    marginBottom: "5px",
+    "& .MuiFormHelperText-root": {
+      marginTop: "-9px",
+      marginLeft: "5px",
+      fontSize: "12px",
+    },
+  },
   inputFieldRight: {
     border: "1px solid black",
     backgroundColor: "white",
     borderRadius: "50px",
-    // gridColumn: "6/7",
-    gridColumn: "5/6",
+    gridColumn: "6/8",
     height: "25px",
     marginBottom: "5px",
     "& .MuiFormHelperText-root": {
@@ -83,8 +81,7 @@ const useStyles = makeStyles({
     border: "1px solid black",
     backgroundColor: "white",
     borderRadius: "50px",
-    // gridColumn: "6/8",
-    gridColumn: "5/7",
+    gridColumn: "6/9",
     height: "25px",
     marginBottom: "5px",
     "& .MuiFormHelperText-root": {
@@ -99,6 +96,7 @@ const useStyles = makeStyles({
     "&.MuiFormLabel-root": {
       fontSize: "12px",
     },
+    marginTop: "-6px",
     width: "110px",
     textAlign: "right",
   },
@@ -107,19 +105,16 @@ const useStyles = makeStyles({
     textAlign: "left",
     fontWeight: "bold",
     color: "black",
+    marginTop: "-6px",
     fontSize: "12px",
-
-    // "&.MuiFormLabel-root": {
-    //   fontSize: "12px",
-    // },
   },
   FormRightLevel: {
-    // gridColumn: "5/6",
-    gridColumn: "4/5",
+    gridColumn: "5/6",
     color: "black",
     "&.MuiFormLabel-root": {
       fontSize: "12px",
     },
+    marginTop: "-6px",
     width: "110px",
     textAlign: "right",
   },
@@ -128,6 +123,7 @@ const useStyles = makeStyles({
     textAlign: "left",
     fontWeight: "bold",
     color: "black",
+    marginTop: "-6px",
     fontSize: "12px",
   },
   paper: {
@@ -140,6 +136,7 @@ const useStyles = makeStyles({
   noneLevel: {
     gridColumn: "2/3",
     color: "black",
+    marginTop: "-6px",
     fontSize: "12px",
     // "&.MuiFormLabel-root": {
     //   fontSize: "12px",
@@ -148,14 +145,24 @@ const useStyles = makeStyles({
   borderButton: {
     border: "1px solid black",
     borderRadius: "50px",
+    marginTop: "-6px",
+    "&.css-i4bv87-MuiSvgIcon-root": {
+      height: "18px",
+      width: "18px",
+    },
+  },
+  moreButtonDiscount: {
+    border: "1px solid black",
+    borderRadius: "50px",
+    marginTop: "-6px",
+    gridColumn: "9/10",
     "&.css-i4bv87-MuiSvgIcon-root": {
       height: "18px",
       width: "18px",
     },
   },
   radioButtonGroup: {
-    // gridColumn: "6/8",
-    gridColumn: "5/7",
+    gridColumn: "6/8",
     fontSize: "12px",
     "& .MuiFormGroup-root": {
       flexWrap: "noWrap",
@@ -265,6 +272,7 @@ const CustomerSIAdd: React.FC<DemoFormProps> = (props) => {
             labelClass={classes.FormRightLevel}
             name="requester"
             required={false}
+            width="110px"
             textFieldClass={classes.inputFieldRightLarge}
             handleChange={props.handleChange}
             helperText={props.errors.requester}
@@ -275,6 +283,7 @@ const CustomerSIAdd: React.FC<DemoFormProps> = (props) => {
             labelText="region code"
             labelClass={classes.FormLeftLevel}
             name="regionCode"
+            width="110px"
             required={false}
             textFieldClass={classes.inputFieldLeftLarge}
             handleChange={props.handleChange}
@@ -309,6 +318,7 @@ const CustomerSIAdd: React.FC<DemoFormProps> = (props) => {
           <FormLabel className={classes.FormLeftLevel}>Gender</FormLabel>
           <button
             className={classes.inputField}
+            style={{ width: "70px", height: "25px"  }}
             type="button"
             onClick={handleOpen}
           >
@@ -360,6 +370,7 @@ const CustomerSIAdd: React.FC<DemoFormProps> = (props) => {
             labelText="Receipt address"
             labelClass={classes.FormRightLevel}
             name="receiptAddress"
+            width="110px"
             required={false}
             textFieldClass={classes.inputFieldRightLarge}
             handleChange={props.handleChange}
@@ -383,6 +394,7 @@ const CustomerSIAdd: React.FC<DemoFormProps> = (props) => {
             name="discountRate"
             value={props.data.discountRate}
             required={false}
+            style={{ width: "70px" }}
             InputProps={{
               disableUnderline: true,
               style: { fontSize: "12px", padding: "0px 10px" },
@@ -396,13 +408,14 @@ const CustomerSIAdd: React.FC<DemoFormProps> = (props) => {
               }
             }}
           />
-          <Typography style={{ textAlign: "left", fontSize: "16px" }}>
+          <Typography style={{ textAlign: "left", fontSize: "14px" }}>
             %
           </Typography>
           <MyInputField
             labelText="Customer factor"
             labelClass={classes.FormLeftLevel}
             name="customerFactor"
+            width={"70px"}
             required={false}
             textFieldClass={classes.inputField}
             handleChange={props.handleChange}
@@ -412,11 +425,12 @@ const CustomerSIAdd: React.FC<DemoFormProps> = (props) => {
           <FormLabel className={classes.FormRightLevel}>
             Discount rate memo
           </FormLabel>
-          <MoreHoriz className={classes.borderButton} />
+          <MoreHoriz className={classes.moreButtonDiscount} />
           <MyInputField
             labelText="Classification code"
             labelClass={classes.FormLeftLevel}
             name="classificationCode"
+            width={"70px"}
             required={false}
             textFieldClass={classes.inputField}
             handleChange={props.handleChange}
@@ -427,6 +441,7 @@ const CustomerSIAdd: React.FC<DemoFormProps> = (props) => {
             labelText="Urge to distinguish"
             labelClass={classes.FormRightLevel}
             name="distinguish"
+            width="70px"
             required={false}
             textFieldClass={classes.inputFieldRight}
             handleChange={props.handleChange}
@@ -437,6 +452,7 @@ const CustomerSIAdd: React.FC<DemoFormProps> = (props) => {
             labelText="Order category"
             labelClass={classes.FormLeftLevel}
             name="orderCategory"
+            width={"70px"}
             required={false}
             textFieldClass={classes.inputField}
             handleChange={props.handleChange}
@@ -447,6 +463,7 @@ const CustomerSIAdd: React.FC<DemoFormProps> = (props) => {
             labelText="Closing date classification"
             labelClass={classes.FormRightLevel}
             name="closingDate"
+            width="70px"
             required={false}
             textFieldClass={classes.inputFieldRight}
             handleChange={props.handleChange}
@@ -457,6 +474,7 @@ const CustomerSIAdd: React.FC<DemoFormProps> = (props) => {
             labelText="Collection method"
             labelClass={classes.FormLeftLevel}
             name="collectionMethod"
+            width={"70px"}
             required={false}
             textFieldClass={classes.inputField}
             handleChange={props.handleChange}
@@ -467,6 +485,7 @@ const CustomerSIAdd: React.FC<DemoFormProps> = (props) => {
             labelText="Customer generic 1"
             labelClass={classes.FormRightLevel}
             name="customerGen1"
+            width="70px"
             required={false}
             textFieldClass={classes.inputFieldRight}
             handleChange={props.handleChange}
@@ -477,6 +496,7 @@ const CustomerSIAdd: React.FC<DemoFormProps> = (props) => {
             labelText="Last store CD"
             labelClass={classes.FormLeftLevel}
             name="lastStoreCD"
+            width={"70px"}
             required={false}
             textFieldClass={classes.inputField}
             handleChange={props.handleChange}
@@ -487,6 +507,7 @@ const CustomerSIAdd: React.FC<DemoFormProps> = (props) => {
             labelText="Customer generic 2"
             labelClass={classes.FormRightLevel}
             name="customerGen2"
+            width="70px"
             required={false}
             textFieldClass={classes.inputFieldRight}
             handleChange={props.handleChange}
@@ -497,6 +518,7 @@ const CustomerSIAdd: React.FC<DemoFormProps> = (props) => {
             labelText="customer rank"
             labelClass={classes.FormLeftLevel}
             name="customerRank"
+            width={"70px"}
             required={false}
             textFieldClass={classes.inputField}
             handleChange={props.handleChange}
@@ -507,6 +529,7 @@ const CustomerSIAdd: React.FC<DemoFormProps> = (props) => {
             labelText="Customer generic 3"
             labelClass={classes.FormRightLevel}
             name="customerGen3"
+            width="70px"
             required={false}
             textFieldClass={classes.inputFieldRight}
             handleChange={props.handleChange}
@@ -522,6 +545,7 @@ const CustomerSIAdd: React.FC<DemoFormProps> = (props) => {
             labelText="Customer generic 4"
             labelClass={classes.FormRightLevel}
             name="customerGen4"
+            width="70px"
             required={false}
             textFieldClass={classes.inputFieldRight}
             handleChange={props.handleChange}
@@ -532,13 +556,11 @@ const CustomerSIAdd: React.FC<DemoFormProps> = (props) => {
           <FormLabel className={classes.RejectionTitleLevel}>
             Rejection management
           </FormLabel>
-          {/* <FormLabel className={classes.FormLeftLevel}>
-            Rejection management
-          </FormLabel> */}
           <MyInputField
             labelText="Customer generic 5"
             labelClass={classes.FormRightLevel}
             name="customerGen5"
+            width="70px"
             required={false}
             textFieldClass={classes.inputFieldRight}
             handleChange={props.handleChange}

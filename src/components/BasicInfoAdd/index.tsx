@@ -69,6 +69,7 @@ const useStyles = makeStyles((theme) => ({
     "&.MuiFormLabel-root": {
       fontSize: "12px",
     },
+    marginTop: "-6px",
     width: "90px",
     textAlign: "right",
     paddingRight: "10px",
@@ -76,6 +77,7 @@ const useStyles = makeStyles((theme) => ({
   FormTitleLevel: {
     gridColumn: "4/5",
     color: "black",
+    marginTop: "-6px",
     "&.MuiFormLabel-root": {
       fontSize: "12px",
     },
@@ -85,6 +87,7 @@ const useStyles = makeStyles((theme) => ({
   FormRightLevel: {
     gridColumn: "6/7",
     color: "black",
+    marginTop: "-6px",
     "&.MuiFormLabel-root": {
       fontSize: "12px",
     },
@@ -100,7 +103,7 @@ const useStyles = makeStyles((theme) => ({
     height: "25px",
     marginBottom: "6px",
     "& .MuiFormHelperText-root": {
-      marginTop: "-6px",
+      marginTop: "-4px",
       marginLeft: "5px",
       fontSize: "12px",
     },
@@ -109,6 +112,7 @@ const useStyles = makeStyles((theme) => ({
     border: "1px solid black",
     backgroundColor: "white",
     borderRadius: "50px",
+    marginTop: "-6px",
     marginLeft: "10px",
 
     "&.css-i4bv87-MuiSvgIcon-root": {
@@ -126,6 +130,7 @@ const BasicInfoAdd: React.FC<DemoFormProps> = (props) => {
   const classes = useStyles();
   const phoneNoRegex = "^[0-9-]+$|^$";
 
+  console.log(props.errors.phoneNo);
   return (
     <React.Fragment>
       <form className={classes.form}>
@@ -144,10 +149,10 @@ const BasicInfoAdd: React.FC<DemoFormProps> = (props) => {
             error={Boolean(props.errors.phoneNo)}
             onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
               if (event.target.value.match(phoneNoRegex)) {
+                props.errors.phoneNo = "";
                 props.handleChange(event);
-              }
-              else{
-                //state declear kore try korte hobe
+              } else {
+                props.errors.phoneNo = "Please enter a valid phone number";
               }
             }}
           />

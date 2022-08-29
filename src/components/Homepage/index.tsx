@@ -120,7 +120,6 @@ const Homepage = () => {
        This Method to Add Employee on the state
       */
   const handleSubmit = async (e: React.FormEvent) => {
-    console.log("Clicked")
     e.preventDefault();
     if (isValid()) {
       return;

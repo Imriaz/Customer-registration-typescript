@@ -80,6 +80,7 @@ const MyInputField: React.FC<MyInputFieldProps> = (props) => {
           disableUnderline: true,
           style: { fontSize: "12px", padding: "0px 10px" },
         }}
+        style={{ width: width }}
         className={textFieldClass}
         onChange={handleChange}
         helperText={helperText}

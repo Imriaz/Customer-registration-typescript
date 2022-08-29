@@ -29,6 +29,7 @@ const useStyles = makeStyles({
     "&.MuiFormLabel-root": {
       fontSize: "12px",
     },
+    marginTop: "-6px",
     width: "90px",
     textAlign: "right",
     paddingRight: "10px",
@@ -37,8 +38,9 @@ const useStyles = makeStyles({
     gridColumn: "6/7",
     color: "black",
     "&.MuiFormLabel-root": {
-      fontSize: "11px",
+      fontSize: "12px",
     },
+    marginTop: "-6px",
     width: "80px",
     textAlign: "right",
     marginLeft: "-20px",
@@ -52,7 +54,7 @@ const useStyles = makeStyles({
     height: "25px",
     marginBottom: "6px",
     "& .MuiFormHelperText-root": {
-      marginTop: "-6px",
+      marginTop: "-4px",
       marginLeft: "5px",
       fontSize: "12px",
     },

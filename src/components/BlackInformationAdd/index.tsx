@@ -49,10 +49,6 @@ const useStyles = makeStyles({
       height: "18px",
       width: "18px",
     },
-    // "&.makeStyles-borderButton-967.css-i4bv87-MuiSvgIcon-root": {
-    //   height: "18px",
-    //   width: "18px",
-    // },
   },
   errorMessage: {
     Color: "red",
@@ -71,6 +67,7 @@ const BlackInformationAdd: React.FC<DemoFormProps> = (props) => {
             labelText="black information"
             labelClass={classes.FormLeftLevel}
             name="blackInformation"
+            width="110px"
             required={false}
             textFieldClass={classes.inputField}
             handleChange={props.handleChange}

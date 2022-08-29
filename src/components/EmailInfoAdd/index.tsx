@@ -29,6 +29,7 @@ const useStyles = makeStyles({
     "&.MuiFormLabel-root": {
       fontSize: "12px",
     },
+    marginTop: "-6px",
     width: "90px",
     textAlign: "right",
     paddingRight: "10px",
