@@ -138,9 +138,6 @@ const useStyles = makeStyles({
     color: "black",
     marginTop: "-6px",
     fontSize: "12px",
-    // "&.MuiFormLabel-root": {
-    //   fontSize: "12px",
-    // },
   },
   borderButton: {
     border: "1px solid black",
@@ -231,8 +228,7 @@ function getModalStyle() {
 }
 
 const CustomerSIAdd: React.FC<DemoFormProps> = (props) => {
-  const discountRegex = "^[+-]?([0-9]+.?[0-9]*|.[0-9]+)$";
-  
+  const discountRegex = "^([0-9]+.?[0-9]*|.[0-9]+)$";
 
   const classes = useStyles();
 
@@ -281,7 +277,7 @@ const CustomerSIAdd: React.FC<DemoFormProps> = (props) => {
             labelText="region code"
             labelClass={classes.FormLeftLevel}
             name="regionCode"
-            width="110px"
+            width="100px"
             required={false}
             textFieldClass={classes.inputFieldLeftLarge}
             handleChange={props.handleChange}
@@ -293,16 +289,28 @@ const CustomerSIAdd: React.FC<DemoFormProps> = (props) => {
             <RadioGroup name="customerType" onChange={props.handleChange}>
               <FormControlLabel
                 value="requirement"
-                control={<Radio size="small" color="primary" />}
+                control={
+                  <Radio
+                    size="small"
+                    color="primary"
+                    style={{ marginTop: "-6px" }}
+                  />
+                }
                 label={
-                  <Typography style={{ fontSize: "12px" }}>
+                  <Typography style={{ fontSize: "12px", marginTop: "-6px" }}>
                     requirement
                   </Typography>
                 }
               />
               <FormControlLabel
                 value="notRequirement"
-                control={<Radio size="small" color="primary" />}
+                control={
+                  <Radio
+                    size="small"
+                    color="primary"
+                    style={{ marginTop: "-6px" }}
+                  />
+                }
                 label={
                   <Typography style={{ fontSize: "12px" }}>
                     don't want
@@ -371,7 +379,10 @@ const CustomerSIAdd: React.FC<DemoFormProps> = (props) => {
                     />
                   </RadioGroup>
                 </FormControl>
-                <button style={{ width: "80px", margin: "10px 30px" }} type="submit">
+                <button
+                  style={{ width: "80px", margin: "10px 30px" }}
+                  type="submit"
+                >
                   Confirm
                 </button>
               </form>
