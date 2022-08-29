@@ -10,6 +10,7 @@ import EmailInfoAdd from "../EmailInfoAdd";
 import CustomerIdentityAdd from "../CustomerIdentityAdd";
 import BlackInformationAdd from "../BlackInformationAdd";
 import CustomerSIAdd from "../CustomerSIAdd";
+import Header from "../Header";
 
 const useStyles = makeStyles({
   form: {
@@ -38,9 +39,9 @@ const useStyles = makeStyles({
   form__submit__button: {
     padding: "5px",
     color: "black",
-    backgroundColor: "#27AE60",
+    backgroundColor: "gray",
     borderRadius: "5px",
-    width: "100px",
+    width: "80px",
     margin: "15px",
     marginRight: "580px",
   },
@@ -51,7 +52,6 @@ export type formDataType = {
   firstName: string;
   lastName: string;
   company: string;
-  designation: string;
   phoneNo: string;
   postalCode: string;
   email1: string;
@@ -73,7 +73,6 @@ const formData: formDataType = {
   firstName: "",
   lastName: "",
   company: "",
-  designation: "",
   phoneNo: "",
   postalCode: "",
   email1: "",
@@ -99,7 +98,6 @@ const initialError: ErrorType = {
   firstName: "",
   lastName: "",
   company: "",
-  designation: "",
   phoneNo: "",
   email1: "",
   email2: "",
@@ -154,7 +152,6 @@ const Homepage = () => {
         firstName: "",
         lastName: "",
         company: "",
-        designation: "",
         phoneNo: "",
         postalCode: "",
         email1: "",
@@ -200,7 +197,7 @@ const Homepage = () => {
        This Method for validation on the Input Field
       */
   const isValid = () => {
-    let hasError = false;
+  let hasError = false;
     const copyErrors: ErrorType = { ...errors };
 
     const validationFields = [
@@ -214,7 +211,6 @@ const Homepage = () => {
       "email2",
       "email3",
       "remarks",
-      "customerFactor",
     ];
 
     for (let key in copyErrors) {
@@ -243,6 +239,7 @@ const Homepage = () => {
 
   return (
     <div>
+      <Header />
       <Routes>
         <Route
           path="/"

@@ -130,7 +130,6 @@ const BasicInfoAdd: React.FC<DemoFormProps> = (props) => {
   const classes = useStyles();
   const phoneNoRegex = "^[0-9-]+$|^$";
 
-  console.log(props.errors.phoneNo);
   return (
     <React.Fragment>
       <form className={classes.form}>
@@ -152,7 +151,7 @@ const BasicInfoAdd: React.FC<DemoFormProps> = (props) => {
                 props.errors.phoneNo = "";
                 props.handleChange(event);
               } else {
-                props.errors.phoneNo = "Please enter a valid phone number";
+                // props.setErrors.phoneNo = "Please enter a valid phone number";
               }
             }}
           />

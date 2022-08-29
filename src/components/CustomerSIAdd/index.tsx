@@ -172,20 +172,6 @@ const useStyles = makeStyles({
       fontSize: "12px",
     },
   },
-  FormSelectButton1: {
-    gridColumn: "6/7",
-    color: "black",
-    "&.MuiFormLabel-root": {
-      fontSize: "12px",
-    },
-  },
-  FormSelectButton2: {
-    gridColumn: "7/8",
-    color: "black",
-    "&.MuiFormLabel-root": {
-      fontSize: "12px",
-    },
-  },
   inputCheckbox1: {
     gridColumn: "1/2",
     width: "120px",
@@ -245,17 +231,29 @@ function getModalStyle() {
 }
 
 const CustomerSIAdd: React.FC<DemoFormProps> = (props) => {
-  const discountRegex = "^[0-9.]+$|^$";
+  const discountRegex = "^[+-]?([0-9]+.?[0-9]*|.[0-9]+)$";
+  
 
   const classes = useStyles();
 
   const [modalStyle] = React.useState(getModalStyle);
   const [open, setOpen] = React.useState(false);
+  const [gender, setGender] = React.useState("");
   const handleOpen = () => {
     setOpen(true);
   };
   const handleClose = () => {
     setOpen(false);
+  };
+  const handleGenderSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    props.setData((prev) => {
+      return {
+        ...prev,
+        gender: gender,
+      };
+    });
+    handleClose();
   };
 
   const formatYmd = (date: Date) => date.toISOString().slice(0, 10);
@@ -296,7 +294,6 @@ const CustomerSIAdd: React.FC<DemoFormProps> = (props) => {
               <FormControlLabel
                 value="requirement"
                 control={<Radio size="small" color="primary" />}
-                // className={classes.FormSelectButton1}
                 label={
                   <Typography style={{ fontSize: "12px" }}>
                     requirement
@@ -306,7 +303,6 @@ const CustomerSIAdd: React.FC<DemoFormProps> = (props) => {
               <FormControlLabel
                 value="notRequirement"
                 control={<Radio size="small" color="primary" />}
-                // className={classes.FormSelectButton2}
                 label={
                   <Typography style={{ fontSize: "12px" }}>
                     don't want
@@ -318,7 +314,7 @@ const CustomerSIAdd: React.FC<DemoFormProps> = (props) => {
           <FormLabel className={classes.FormLeftLevel}>Gender</FormLabel>
           <button
             className={classes.inputField}
-            style={{ width: "70px", height: "25px"  }}
+            style={{ width: "70px", height: "25px" }}
             type="button"
             onClick={handleOpen}
           >
@@ -331,40 +327,58 @@ const CustomerSIAdd: React.FC<DemoFormProps> = (props) => {
             aria-describedby="simple-modal-description"
           >
             <div style={modalStyle} className={classes.paper}>
-              <button style={{ marginLeft: "180px" }} onClick={handleClose}>
-                X
-              </button>
-              <FormControl>
-                <FormLabel style={{ color: "black", fontWeight: "bold" }}>
-                  Select an option:
-                </FormLabel>
-                <RadioGroup
-                  aria-label="gender"
-                  name="gender"
-                  onChange={props.handleChange}
-                  value={props.data?.gender}
-                >
-                  <FormControlLabel
-                    value="Male"
-                    control={<Radio size="small" color="primary" />}
-                    label={<Typography>Male</Typography>}
-                  />
-                  <FormControlLabel
-                    value="Female"
-                    control={<Radio size="small" color="primary" />}
-                    label={<Typography>Female</Typography>}
-                  />
-                  <FormControlLabel
-                    value="Others"
-                    control={<Radio size="small" color="primary" />}
-                    label={<Typography>Others</Typography>}
-                  />
-                </RadioGroup>
-              </FormControl>
+              <form onSubmit={handleGenderSubmit}>
+                <button style={{ marginLeft: "180px" }} onClick={handleClose}>
+                  X
+                </button>
+                <FormControl>
+                  <FormLabel style={{ color: "black", fontWeight: "bold" }}>
+                    Select an option:
+                  </FormLabel>
+                  <RadioGroup aria-label="gender" name="gender">
+                    <FormControlLabel
+                      value="Male"
+                      control={
+                        <Radio
+                          size="small"
+                          color="primary"
+                          onChange={(e) => setGender(e.target.value)}
+                        />
+                      }
+                      label={<Typography>Male</Typography>}
+                    />
+                    <FormControlLabel
+                      value="Female"
+                      control={
+                        <Radio
+                          size="small"
+                          color="primary"
+                          onChange={(e) => setGender(e.target.value)}
+                        />
+                      }
+                      label={<Typography>Female</Typography>}
+                    />
+                    <FormControlLabel
+                      value="Others"
+                      control={
+                        <Radio
+                          size="small"
+                          color="primary"
+                          onChange={(e) => setGender(e.target.value)}
+                        />
+                      }
+                      label={<Typography>Others</Typography>}
+                    />
+                  </RadioGroup>
+                </FormControl>
+                <button style={{ width: "80px", margin: "10px 30px" }} type="submit">
+                  Confirm
+                </button>
+              </form>
             </div>
           </Modal>
           <Typography style={{ textAlign: "left", fontSize: "12px" }}>
-            {props.data?.gender}
+            {props.data.gender}
           </Typography>
           <MyInputField
             labelText="Receipt address"

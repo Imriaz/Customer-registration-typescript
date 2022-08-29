@@ -1,4 +1,4 @@
-import { FormLabel, makeStyles, TextField } from "@material-ui/core";
+import { FormLabel, TextField } from "@material-ui/core";
 import React from "react";
 
 type MyInputFieldProps = {
@@ -14,46 +14,6 @@ type MyInputFieldProps = {
   handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
-const useStyles = makeStyles({
-  LeftLevel: {
-    gridColumn: "1/2",
-    color: "black",
-    "&.MuiFormLabel-root": {
-      fontSize: "12px",
-    },
-    width: "100px",
-  },
-  RightLevel: {
-    gridColumn: "6/7",
-    color: "black",
-    "&.MuiFormLabel-root": {
-      fontSize: "12px",
-    },
-  },
-  inputField: {
-    border: "1px solid black",
-    backgroundColor: "white",
-    borderRadius: "50px",
-    gridColumn: "2/4",
-  },
-  inputFieldLarge: {
-    border: "1px solid black",
-    backgroundColor: "white",
-    borderRadius: "50px",
-    gridColumn: "2/6",
-  },
-  inputFieldRight: {
-    border: "1px solid black",
-    backgroundColor: "white",
-    borderRadius: "50px",
-    gridColumn: "7/9",
-  },
-  errorMessage: {
-    Color: "red",
-    padding: "10px",
-  },
-});
-
 const MyInputField: React.FC<MyInputFieldProps> = (props) => {
   const {
     labelText,
@@ -67,7 +27,6 @@ const MyInputField: React.FC<MyInputFieldProps> = (props) => {
     textFieldClass,
     handleChange,
   } = props;
-  const classes = useStyles();
 
   return (
     <React.Fragment>
